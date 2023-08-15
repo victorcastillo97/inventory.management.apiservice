@@ -1,12 +1,10 @@
-from sqlalchemy import Table, Column
-from sqlalchemy.sql.sqltypes import Integer, String
-from config.db import meta, engine
+from sqlalchemy import Column, Integer, String
+from core.database import Base
 
-users = Table("users", meta,
-        Column("id", Integer, primary_key=True),
-        Column("name", String(255)),
-        Column("email", String(255)),
-        Column("password", String(255))
-        )
+class User(Base):
+    __tablename__ = "users"
 
-meta.create_all(engine)
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String(255), index=True)
+    email = Column(String(255))
+    password = Column(String(255))
