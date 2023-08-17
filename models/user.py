@@ -1,5 +1,6 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import ForeignKey, Column, Integer, String, DateTime
 from core.database import Base
+import datetime
 
 class User(Base):
     __tablename__ = "users"

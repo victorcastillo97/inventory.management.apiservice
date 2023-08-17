@@ -33,5 +33,5 @@ def create_user_endpoint(user: UserCreate, db: Session = Depends(get_db)):
 
 @router.delete("/{user_id}", response_model=User)
 def delete_task_endpoint(user_id: int, db: Session = Depends(get_db)):
-    delete_user(db, user_id)
+    delete_user( db=db, user_id=user_id)
     return JSONResponse(content={"message": "Eliminado con éxito"}, status_code=status.HTTP_200_OK)
