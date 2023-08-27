@@ -12,6 +12,7 @@ class Product(Base):
     brand = Column(String(255))
     description = Column(String(255))
     price = Column(Integer)
+    stock = Column(Integer)
 
     stock_product = relationship('Stock_Product', back_populates='product')
     orders = relationship('Order', back_populates='product')

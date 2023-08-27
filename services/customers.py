@@ -5,6 +5,9 @@ from schemas.customer import CustomerCreate
 def get_customers(db: Session, customer_id: int):
     return db.query(Customer).filter(Customer.id == customer_id).first()
 
+def get_customer_by_dni(db: Session, dni: int):
+    return db.query(Customer).filter(Customer.dni == dni).first()
+
 def create_customer(db: Session, customer: CustomerCreate):
     db_customer = Customer(**customer.dict())
     db.add(db_customer)

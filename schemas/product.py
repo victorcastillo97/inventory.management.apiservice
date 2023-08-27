@@ -5,6 +5,7 @@ class ProductCreate(BaseModel):
     brand: str
     description: str
     price: int
+    stock: int
 
 class Product(ProductCreate):
     id: int

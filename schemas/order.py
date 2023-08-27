@@ -1,6 +1,12 @@
 from pydantic import BaseModel
 from datetime import datetime
 
+class OrderCompleteCreate(BaseModel):
+    dni: int
+    name: str
+    product_id: int
+    quantity: int
+
 class OrderCreate(BaseModel):
     product_id: int
     customer_id: int
