@@ -17,7 +17,7 @@ def get_db():
 def read_orders(db: Session = Depends(get_db)):
     return get_orders(db=db)
 
-@router.post("")
+@router.post("/")
 def create_order_router(order: OrderCreate, db: Session = Depends(get_db)):
     return create_order(db=db, order=order)
 
