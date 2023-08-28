@@ -3,7 +3,7 @@ from models.order import Order
 from schemas.order import OrderCreate, OrderCompleteCreate
 from schemas.customer import CustomerCreate
 from services.customers import get_customer_by_dni, create_customer
-from services.products import get_product
+from services.products import get_product, update_stock_product
 
 def get_orders(db:Session):
     return db.query(Order).all()
@@ -39,5 +39,6 @@ def create_complete_order(db: Session, order:OrderCompleteCreate):
     
     db.add(db_order)
     db.commit()
+    update_stock_product(product.stock - order.quantity,product,db)
     db.refresh(db_order)
     return db_order
